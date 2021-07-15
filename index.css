@@ -1,0 +1,51 @@
+.name{
+    color: white;
+}
+
+
+.skills {
+  text-align: right; /* Right-align text */
+  padding-top: 10px; /* Add top padding */
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px; /* Add bottom padding */
+  color: white; /* White text color */
+}
+
+ 
+
+
+.kotlin {width: 90%; background-color: #04AA6D;} /* Green */
+.css {width: 65%; background-color: #2196F3;} /* Blue */
+.js {width: 60%; background-color: #f44336;} /* Red */
+.java {width: 80%; background-color: #808080;} /* Dark Grey */
+.html {width: 70%; background-color: #2196F3;}
+
+.skills_text{
+    padding-left: 12px;
+    padding-top: 12px;
+}
+.social a{
+    padding: 12px;
+}
+html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+
+.li_class{
+    display:inline
+}
+ 
+ 
+.col-lg-6 li{
+    padding: 12px;
+}
+html {
+    scroll-behavior: smooth;
+  }
+ 
