@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en " >
+<html lang="en " style="scroll-behavior: smooth;" >
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,7 +18,7 @@
             <div class="col-md-6 col-9 p-2 ps-4">
                 <h3 class="name">Mohamed Niyas N</h3>
             </div>
-            <div class="col-md-6 col-3 my-auto">
+            <div class="col-md-6 col-3 my-auto" >
                 <nav class="navbar navbar-expand-lg navbar-dark ">
                     
                     <button class="navbar-toggler ms-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -204,38 +204,40 @@
                     
                     <div class="col-md-6 name">
                       <label for="inputName4" class="form-label">Name</label>
-                      <input type="text" name="name" class="form-control" id="inputName" onkeyup="checkName()" placeholder="Name" required >
+                      <input type="text" name="name" class="form-control" id="inputName" onkeyup="checkName()" placeholder="Name"   >
                       <p id="nameValid"></p>
                     </div>
                     <div class="col-md-6 name">
                         <label for="inputEmail4" class="form-label">Place</label>
-                        <input type="text" name="place" class="form-control" id="inputPlace"onkeyup="checkPlace()" required>
+                        <input type="text" name="place" class="form-control" id="inputPlace"onkeyup="checkPlace()"  >
                         <p id="placeValid"></p>
                       </div>
                     <div class="col-12 name">
                       <label for="inputAddress" class="form-label">Address</label>
-                      <input type="text" class="form-control" name="address" id="inputAddress" placeholder="1234 Ernakulam" onkeyup="checkAddress()" required>
+                      <input type="text" class="form-control" name="address" id="inputAddress" placeholder="1234 Ernakulam" onkeyup="checkAddress()"  >
                       <p id="addressValid"></p>
                     </div>
                     <div class="col-md-6 name">
                         <label for="inputEmail4" class="form-label">Email</label>
-                        <input type="email" class="form-control" name="email" id="inputEmail" placeholder="Email" onkeyup="checkEmail()" required>
+                        <input type="email" class="form-control" name="email" id="inputEmail" placeholder="Email" onkeyup="checkEmail()"  >
                         <p id="emailValid"></p>
                       </div>
                       <div class="col-md-6 name">
                           <label for="inputphone4" class="form-label">Phone Number</label>
-                          <input type="tel" class="form-control" name="phone" id="inputPhone" onkeyup="checkPhone()"  required>
+                          <input type="tel" class="form-control" name="phone" id="inputPhone" onkeyup="checkPhone()"   >
                           <p id="phoneValid"></p>
                         </div>
                     <div class="col 12 name" >
                         <label for="inputphone4" class="form-label">Say Hi!</label>
-                        <textarea name="message" id="inputMessage" class="form-control" cols="30" rows="5" placeholder="Type your message here..." onkeyup="checkMessage()"  required></textarea>
+                        <textarea name="message" id="inputMessage" class="form-control" cols="30" rows="5" placeholder="Type your message here..." onkeyup="checkMessage()"   ></textarea>
                         <p id="messageValid"></p>
+                        <p  id="submitInValid"></p>
                     </div>
                    
                     
                     <div class="col-12 form-group text-center">
-                      <button type="submit" value="submit" style="width: 100%;" class="btn btn-primary">Submit</button>
+                      
+                      <button type="submit" value="submit" style="width: 100%;"  class="btn btn-primary">Submit</button>
                     </div>
                   </form>
             </div>
@@ -271,6 +273,7 @@
     <script>
         $("#submit-form").submit((e)=>{
             e.preventDefault()
+            if(validName && validPlace && validAddress && validEmail && validPhone && validMessage){
             $.ajax({
                 url:"https://script.google.com/macros/s/AKfycbxm7u4aXKEKQ4d_-lFYO1slIvYg2LX_Abbfo1ZUtanPP15JlJ_zrxysISOgXRzOvz-c5g/exec",
                 data:$("#submit-form").serialize(),
@@ -285,6 +288,9 @@
     
                 }
             })
+        }else{
+            error_display()
+        }
         })
     </script>
 </body>
