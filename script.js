@@ -121,9 +121,3 @@ function checkMessage(){
 
 
 }
-<<<<<<< HEAD
-=======
-function error_display(){
-    document.getElementById("submitInValid").innerHTML = "Please fill the details"
-}
->>>>>>> aae2c7e4333ac183d9b2b9d962746e38f6147d53
