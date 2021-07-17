@@ -22,6 +22,7 @@ function checkName(){
         validName = false
     }
     document.getElementById("nameValid").innerHTML = validation
+    
 
 }
 
@@ -119,7 +120,4 @@ function checkMessage(){
     document.getElementById("messageValid").innerHTML = validation
 
 
-}
-function error_display(){
-    document.getElementById("submitInValid").innerHTML = "Please fill the details"
 }
