@@ -238,7 +238,7 @@
                     
                     <div class="col-12 form-group text-center">
                       
-                      <button type="submit" value="submit" style="width: 100%;"  class="btn btn-primary">Submit</button>
+                      <button type="submit" id="submit_btn" value="submit" style="width: 100%;"  class="btn btn-primary">Submit</button>
                     </div>
                   </form>
             </div>
@@ -274,7 +274,7 @@
     <script>
         $("#submit-form").submit((e)=>{
             e.preventDefault()
-            if(validName && validPlace && validAddress && validEmail && validPhone && validMessage){
+            // if(validName && validPlace && validAddress && validEmail && validPhone && validMessage){
             $.ajax({
                 url:"https://script.google.com/macros/s/AKfycbxm7u4aXKEKQ4d_-lFYO1slIvYg2LX_Abbfo1ZUtanPP15JlJ_zrxysISOgXRzOvz-c5g/exec",
                 data:$("#submit-form").serialize(),
@@ -289,9 +289,9 @@
     
                 }
             })
-        }else{
-            alert("Please fill the details")
-        }
+        // }else{
+        //     alert("Please fill the details")
+        // }
         })
     </script>
 </body>

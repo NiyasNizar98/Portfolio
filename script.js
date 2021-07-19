@@ -1,123 +1,222 @@
  
-var validName
-var validPlace
-var validAddress
-var validEmail
-var validPhone
-var validMessage
 
-function checkName(){
-    validName = false
-    var name = document.getElementById("inputName").value
-    var validation
-    var pattern = /^[-a-zA-Z-()]+(\s+[-a-zA-Z-()]+)*$/
-    if (name==""){
-        validation = "Please enter your name"
-        validName = false
-    }else if(name.match(pattern)){
-        validation = ""
-        validName = true
-    }else{
-        validation = "Please use characters only"
-        validName = false
-    }
-    document.getElementById("nameValid").innerHTML = validation
+// Document is ready
+$(document).ready(function () {
+	
+    // Validate Username
+        $('#nameValid').hide();	
+        let usernameError = true;
+        $('#inputName').keyup(function () {
+            validateUsername();
+        });
+
+        $('#emailValid').hide();	
+        let emailError = true;
+        $('#inputEmail').keyup(function () {
+            validateEmail();
+        });
+
+        $('#placeValid').hide();	
+        let placeError = true;
+        $('#inputPlace').keyup(function () {
+            validatePlace();
+        });
+
+        $('#addressValid').hide();	
+        let addressError = true;
+        $('#inputAddress').keyup(function () {
+            validateAddress();
+        });
+
+        $('#phoneValid').hide();	
+        let phoneError = true;
+        $('#inputPhone').keyup(function () {
+            validatePhone();
+        });
+
+        $('#messageValid').hide();	
+        let messageError = true;
+        $('#inputMessage').keyup(function () {
+            validateMessage();
+        });
+        
+    function validateUsername() {
+        let usernameValue = $('#inputName').val();
+        var pattern = /^[-a-zA-Z-()]+(\s+[-a-zA-Z-()]+)*$/
+        if (usernameValue.length == '') {
+            $('#nameValid').show();
+            $('#nameValid').html
+            ("Enter your name");
+            usernameError = false;
+            return false;
+            }
+        else if(!usernameValue.match(pattern)){
+            $('#nameValid').show();
+            $('#nameValid').html
+            ("Characters only");
+            usernameError = false;
+            return false;
+        }
+        else {
+            $('#nameValid').hide();
+            usernameError = true;
+            return true;
+            }
+        }
     
-
-}
-
-function checkPlace(){
-    var place = document.getElementById("inputPlace").value
-    var validation
-    validPlace = false
-    var pattern = /^[a-z A-z 0-9\s]*$/;
-    if (place==""){
-        validation = "Please Enter your details"
-        validPlace = false
-    }else if(name.match(pattern)){
-        validation = ""
-        validPlace = true
-    }else{
-        validation = "Please enter your details"
-        validPlace = false
-    }
-    document.getElementById("placeValid").innerHTML = validation
-}
-
-function checkAddress(){
-    var address = document.getElementById("inputAddress").value
-    var validation
-    validAddress = false;
-    var pattern = /^[-a-zA-Z0-9-()]+(\s+[-a-zA-Z0-9-()]+)*$/
     
     
-    if (address==""){
-        validation = "Please Enter your details"
-        validAddress = false
-    }else if(address.length<10){
-        validation = "Please add more details"
-        validAddress = false
+    function validateEmail(){
+        let email = $('#inputEmail').val();
+        var pattern = /^[^]+@[^]+\.[a-z]{2,3}$/
+        
+        if (email.length == '') 
+        {
+            $('#emailValid').show();
+            $('#emailValid').html
+            ("Enter your mail")
+            emailError = false;
+            return false;
+        }
+        else if(!email.match(pattern))
+        {
+            $('#emailValid').show();
+            $('#emailValid').html
+            ("Please enter your email");
+            emailError = false;
+            return false;
+        }
+        else {
+            $('#emailValid').hide();
+            emailError = true;
+            return true;
+        }
     }
-    else{
-        validation = ""
-        validAddress = true
-    }
-    document.getElementById("addressValid").innerHTML = validation
-}
 
-function checkEmail(){
-    var email = document.getElementById("inputEmail").value
-    var validation
-    validEmail = false
-    var pattern = /^[^]+@[^]+\.[a-z]{2,3}$/
-    if (email==""){
-        validEmail = false
-        validation = "Please enter your mail"
-    }else if(email.match(pattern)){
-        validation = ""
-        validEmail = true
-    }else{
-        validation = "Please enter valid mail "
-        validEmail = false
+    function validatePlace(){
+        let place = $('#inputPlace').val();
+        var pattern = /^[a-z A-z 0-9\s]*$/;
+        
+        if (place.length == '') {
+            $('#placeValid').show();
+            $('#placeValid').html
+            ("Please enter your place");
+            placeError = false;
+            return false;
+        }
+        else if(!place.match(pattern))
+        {
+            $('#placeValid').show();
+            $('#placeValid').html
+            ("Please enter your place");
+            placeError = false;
+            return false;
+        }
+        else {
+            $('#placeValid').hide();
+            placeError = true;
+            return true;
+        }
     }
-    document.getElementById("emailValid").innerHTML = validation
-}
 
-function checkPhone(){
-    var phone = document.getElementById("inputPhone").value
-    var validation
-     valid = false
-    var pattern = /^\d{10}$/;
-    if (phone==""){
-        validation = "Please enter your phone number"
-        validPhone = false
-    }else if(phone.match(pattern)){
-        validation = ""
-        validPhone = true
+    function validateAddress(){
+        let address = $('#inputAddress').val();
+        var pattern = /^[-a-zA-Z0-9-()]+(\s+[-a-zA-Z0-9-()]+)*$/
+        
+        if (address.length == '') {
+            $('#addressValid').show();
+            $('#addressValid').html
+            ("Please enter your address");
+            addressError = false;
+            return false;
+            }
+        else if(!address.match(pattern)){
+            $('#addressValid').show();
+            $('#addressValid').html
+            ("Please enter your address");
+            addressError = false;
+            return false;
+        }
+        else if(address.length<10){
+            $('#addressValid').show();
+            $('#addressValid').html
+            ("Please enter min 10 letters"); 
+            addressError = false;
+            return false;
+        }
+        else {
+            $('#addressValid').hide();
+            addressError = true;
+            return true;
+        }
     }
-    else{
-        validation = "Please enter upto 10 digits"
-        validPhone = false
-    }
-    document.getElementById("phoneValid").innerHTML = validation
-}
-function checkMessage(){
-    var message = document.getElementById("inputMessage").value
-    var validation
-    validMessage = false
-    var pattern = /^[-a-zA-Z0-9-()]+(\s+[-a-zA-Z0-9-()]+)*$/;
-    if (message==""){
-        validation = "Please enter your message"
-        valvalidMessageid = false
-    }else if(message.match(pattern)){
-        validation = ""
-        validMessage = true
-    }
-    else{
-        validation = ""
-        validMessage = true
-    }
-    document.getElementById("messageValid").innerHTML = validation
 
+    function validatePhone(){
+        let phone = $('#inputPhone').val();
+        var pattern = /^\d{10}$/;
+        
+        if (phone.length == '') {
+            $('#phoneValid').show();
+            $('#phoneValid').html
+            ("Please enter your phone number");
+            phoneError = false;
+            return false;
+        }
+        else if(!phone.match(pattern)){
+            $('#phoneValid').show();
+            $('#phoneValid').html
+            ("Please enter digits only");
+            phoneError = false;
+            return false;
+        }
+        else {
+            $('#phoneValid').hide();
+            phoneError = true;
+            return true;
+        }
+    }
 
-}
+    function validateMessage(){
+        let message = $('#inputMessage').val();
+        
+        
+        if (message.length == '') {
+            $('#messageValid').show();
+            $('#messageValid').html
+            ("Please enter your message");
+            messageError = false;
+            return false;
+        }
+        else {
+            $('#messageValid').hide();
+            messageError = true;
+            return true;
+        }
+    }
+        
+
+            
+
+        
+    // Submitt button
+        $('#submit_btn').click(function () {
+            validateUsername();
+            validateEmail();
+            validateAddress();
+            validateMessage();
+            validatePlace();
+            validatePhone();
+            if ((usernameError == true) &&
+                (emailError == true) &&  
+                (placeError == true) && 
+                (addressError == true) &&
+                (phoneError == true) &&
+                (messageError == true)) {
+                return true;
+            } else {
+                alert("Please fill the details")
+                return false;
+            }
+        });
+    });
+    
