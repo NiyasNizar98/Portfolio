@@ -95,7 +95,7 @@ $(document).ready(function () {
 
     function validatePlace(){
         let place = $('#inputPlace').val();
-        var pattern = /^[a-z A-z 0-9\s]*$/;
+        var pattern = /^[-a-zA-Z0-9-()]+(\s+[-a-zA-Z0-9-()]+)*$/;
         
         if (place.length == '') {
             $('#placeValid').show();
@@ -129,7 +129,7 @@ $(document).ready(function () {
             ("Please enter your address");
             addressError = false;
             return false;
-            }
+        }
         else if(!address.match(pattern)){
             $('#addressValid').show();
             $('#addressValid').html
